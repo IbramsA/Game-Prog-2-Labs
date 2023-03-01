@@ -13,20 +13,22 @@ public class RaycastCall : MonoBehaviour
         aS=GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+    // // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) {
-            aS.Play();
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             RaycastHit hit;
+            aS.Play();
 
             if (Physics.Raycast(ray, out hit)) {
-                if (hit.collider.gameObject.tag == "Target") {
-                    Destroy(hit.collider.gameObject);
+                if (hit.collider.tag == "Target") {
+                    GameObject hitObject = hit.collider.gameObject;
+                    GameManager.Instance.IncrementScore();
+                    Destroy(hitObject);
                 }
             }
-            //gm.IncrementScore();
         }
     }
+
 }

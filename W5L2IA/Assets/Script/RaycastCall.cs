@@ -7,6 +7,8 @@ public class RaycastCall : MonoBehaviour
 {
     private AudioSource aS;
     public GameManager gm;
+        public GameObject particle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class RaycastCall : MonoBehaviour
                     Destroy(hitObject);
                 }
             }
+            Instantiate(particle, hit.point, Quaternion.identity);
         }
     }
 

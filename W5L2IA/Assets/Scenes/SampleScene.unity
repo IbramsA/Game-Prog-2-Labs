@@ -411,8 +411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb482bdd4af2284ca22222d89ae4ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sc: {fileID: 0}
   gm: {fileID: 0}
+  particle: {fileID: 4550103333603995577, guid: d28feca339262114ca86a1c092b306b6, type: 3}
 --- !u!82 &180758031
 AudioSource:
   m_ObjectHideFlags: 0

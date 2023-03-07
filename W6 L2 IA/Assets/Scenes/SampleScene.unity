@@ -998,7 +998,7 @@ GameObject:
   - component: {fileID: 1579625245}
   m_Layer: 0
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1100,6 +1100,8 @@ MonoBehaviour:
   targetToAttack: {fileID: 1540334734}
   rotationSpeed: 5
   healthBarImage: {fileID: 1677947118}
+  movement: {fileID: 0}
+  shoot: {fileID: 0}
   maxHealthPoints: 100
 --- !u!1 &1677947116
 GameObject:

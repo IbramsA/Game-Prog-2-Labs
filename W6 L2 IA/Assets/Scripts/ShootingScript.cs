@@ -9,7 +9,7 @@ public class ShootingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        turret = GameObject.Find("Turret").transform;
     }
 
     // Update is called once per frame
@@ -17,13 +17,16 @@ public class ShootingScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
+            RaycastHit h;
+            Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
             Instantiate(particleSystemPrefab, transform.position, transform.rotation);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(r, out h))
             {
-                TurretComponent tc = turret.GetComponent<TurretComponent>();
-                tc.TakeDamage(20);
+                if(h.collider.tag == "Turret"){
+                    GameObject target = h.collider.gameObject;
+                    TurretComponent tc = turret.GetComponent<TurretComponent>();
+                    tc.TakeDamage(20);
+                }
             }
         }
     }
